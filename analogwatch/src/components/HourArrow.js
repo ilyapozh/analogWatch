@@ -11,7 +11,7 @@ function HourArrow(props) {
 
     React.useEffect(() => {
         setCurrentAngle({
-            transform: `rotate(${(-90 + props.hours*6)}deg)`,
+            transform: `rotate(${(-90 + props.hours*6*5)}deg)`,
             transformOrigin: "0 0"
         })
     }, [props.hours])
