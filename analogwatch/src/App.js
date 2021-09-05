@@ -10,7 +10,7 @@ function App() {
 
   const [minutes, setMinutes] = React.useState(59);
 
-  const [hours, setHours] = React.useState(0);
+  const [hours, setHours] = React.useState(5*11);
 
   const [currentTime, setCurrentTime ] = React.useState('00:00:00');
 
@@ -26,13 +26,19 @@ function App() {
     setHours(curHour*5)
   }
 
+  function showCurrentTime() {
+    // console.log(hours);
+    // console.log(minute);
+    // console.log(sec);
+  }
+
   return (
     <div className="page">
       <SecondArrow clockWork={clockForward} fullRoundSecArr={handleFullRoundSecArr} fullRoundMinArr={handleFullRoundMinArr} />
       <MinuteArrow  minutes={minutes} />
       <HourArrow hours={hours} />
       <button className="button" onClick={rotateSecondArrow}>Время вперед/назад</button>
-      <button className="button-change-time">Показать текущее</button>
+      <button className="button-change-time" onClick={showCurrentTime}>Показать текущее</button>
       <p className="current-time">{currentTime}</p>
     </div>
   );

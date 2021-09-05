@@ -23,7 +23,7 @@ function SecondArrow(props) {
 
     let counterSec = 50;
     let currentMinute = 59;
-    let currentHour = 0;
+    let currentHour = 11;
 
     const rotateArrow = () => {
         counterSec += 1; 
@@ -33,18 +33,22 @@ function SecondArrow(props) {
         })
         
         if (counterSec%60 === 0) {
-            
+            counterSec = 0;
             currentMinute += 1; // возможно нужно обнулять при 60 мин
             handleFullRoundSecArr(currentMinute);
 
             if (currentMinute%60 === 0) {
+                currentMinute = 0;
                 currentHour += 1;
                 handleFullRoundMinArr(currentHour);
+                if (currentHour === 12) currentHour = 0;
             }
         }
         
-        // console.log(counterSec);
-        // console.log(currentMinute);
+        console.log(currentHour+':'+currentMinute+':'+counterSec);
+        console.log();
+        
+        
     }
 
     function setClockStart(clockWork) {
